@@ -50,7 +50,6 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function createWordsOnScreen(wordObjs: Word[]){
-        console.log("Creating words on screen");
         let wordsOnScreen = [];
         for(var i = 0; i < wordObjs.length * wordMultiplier; i++){
             var j = i % wordObjs.length;
@@ -77,7 +76,6 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function setCanvas(){
-        console.log("Setting canvas");
         let c = canvasRef.current;
         if(c){
             resizeCanvas(c, window.innerWidth, window.innerHeight);
@@ -87,7 +85,6 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function resizeCanvas(canvas: HTMLCanvasElement, width: number, height: number){
-        console.log("Resizing canvas");
         if(canvas && canvas instanceof HTMLCanvasElement && width && height){
             canvas.width = width;
             canvas.height = height;
@@ -179,10 +176,8 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     useEffect(() => {
-        console.log("WordCloud mounted");
         stampRef.current = document.createElement('canvas');
         window.addEventListener('resize', () => {
-            console.log("Resizing window");
             setCanvas();
         });
     }, []);
@@ -191,16 +186,14 @@ const WordCloud = (props: WordCloudProps) => {
         delay = props.delay || 0;
 
     useAnimationFrame(time => {
-        console.log("Use animation frame. Time: ", time, " Delay: ", delay, " Words on screen: ", wordsOnScreen.length, " Canvas: ", canvasRef.current, " Stamp: ", stampRef.current, " Word multiplier: ", wordMultiplier, " Dampen: ", dampen, " Interval: ", props.interval);
         if(time >= delay){
-            console.log("Delay exceeded. Drawing words.");
             if(wordsOnScreen.length === 0){
                 setCanvas();
                 wordsOnScreen = createWordsOnScreen(createWords());
             }
             return draw(wordsOnScreen);
         }
-        return 0;
+        return 25;
     });
 
     return (
