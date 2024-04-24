@@ -177,6 +177,7 @@ const WordCloud = (props: WordCloudProps) => {
 
     useEffect(() => {
         stampRef.current = document.createElement('canvas');
+        setCanvas();
         window.addEventListener('resize', () => {
             setCanvas();
         });
