@@ -77,6 +77,7 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function setCanvas(){
+        console.log("Setting canvas");
         let c = canvasRef.current;
         if(c){
             resizeCanvas(c, window.innerWidth, window.innerHeight);
@@ -86,6 +87,7 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function resizeCanvas(canvas: HTMLCanvasElement, width: number, height: number){
+        console.log("Resizing canvas");
         if(canvas && canvas instanceof HTMLCanvasElement && width && height){
             canvas.width = width;
             canvas.height = height;
@@ -177,9 +179,10 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     useEffect(() => {
+        console.log("WordCloud mounted");
         stampRef.current = document.createElement('canvas');
-        setCanvas();
         window.addEventListener('resize', () => {
+            console.log("Resizing window");
             setCanvas();
         });
     }, []);
@@ -189,6 +192,7 @@ const WordCloud = (props: WordCloudProps) => {
 
     useAnimationFrame(time => {
         if(time >= delay){
+            console.log("Delay exceeded. Drawing words.");
             if(wordsOnScreen.length === 0){
                 setCanvas();
                 wordsOnScreen = createWordsOnScreen(createWords());
