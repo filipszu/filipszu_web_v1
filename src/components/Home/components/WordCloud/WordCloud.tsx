@@ -50,6 +50,7 @@ const WordCloud = (props: WordCloudProps) => {
     }
 
     function createWordsOnScreen(wordObjs: Word[]){
+        console.log("Creating words on screen");
         let wordsOnScreen = [];
         for(var i = 0; i < wordObjs.length * wordMultiplier; i++){
             var j = i % wordObjs.length;
