@@ -14,6 +14,7 @@ function Home(props: HomeProps) {
   } else if(isDesktop){
     wordCloud = <WordCloud delay={1000} interval={30} wordMultiplier={15}/>;
   }
+  console.log("WordCloud: ", wordCloud);
   return (
     <div className={classes.Home}>
       {wordCloud}
