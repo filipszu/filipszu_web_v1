@@ -191,6 +191,7 @@ const WordCloud = (props: WordCloudProps) => {
         delay = props.delay || 0;
 
     useAnimationFrame(time => {
+        console.log("Use animation frame. Time: ", time, " Delay: ", delay, " Words on screen: ", wordsOnScreen.length, " Canvas: ", canvasRef.current, " Stamp: ", stampRef.current, " Word multiplier: ", wordMultiplier, " Dampen: ", dampen, " Interval: ", props.interval);
         if(time >= delay){
             console.log("Delay exceeded. Drawing words.");
             if(wordsOnScreen.length === 0){
