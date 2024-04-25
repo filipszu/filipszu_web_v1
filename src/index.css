@@ -1,7 +1,8 @@
 @font-face {
   font-family: "MyPhoneN1280Regular";
   src: url("./assets/my_phone_n1280-webfont.eot");
-  src: url("./assets/my_phone_n1280-webfont.eot?#iefix")
+  src:
+    url("./assets/my_phone_n1280-webfont.eot?#iefix")
       format("embedded-opentype"),
     url("./assets/my_phone_n1280-webfont.woff") format("woff"),
     url("./assets/my_phone_n1280-webfont.ttf") format("truetype"),

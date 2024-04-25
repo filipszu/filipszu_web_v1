@@ -40,7 +40,7 @@ describe(`Footer component responsibble for rendering the links to other platfor
     Object.values(hardcodedLinks).forEach((link) => {
       expect(screen.getByRole("link", { name: link.label })).toHaveAttribute(
         "href",
-        link.url
+        link.url,
       );
     });
   });
